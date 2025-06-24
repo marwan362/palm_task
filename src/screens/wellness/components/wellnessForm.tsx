@@ -5,11 +5,14 @@ import SleepSlider from '../../../components/slider';
 import { MoodType } from '../../../types';
 import locales from '../../../locales';
 import ViewFadeAnimated from '../../../components/viewFadeAnimated';
+import { ActivityIndicator } from 'react-native';
 
 type WellnessFormProps = {
   mood: MoodType;
   sleepHours: number;
   notes: string;
+  isPending: boolean;
+  isError: boolean;
   onMoodChange: (mood: MoodType) => void;
   onSleepHoursChange: (hours: number) => void;
   onNotesChange: (text: string) => void;
@@ -25,6 +28,8 @@ export const WellnessForm = React.memo(
     onSleepHoursChange,
     onNotesChange,
     onSubmit,
+    isPending,
+    isError,
   }: WellnessFormProps) => {
     return (
       <ScrollView
@@ -77,8 +82,16 @@ export const WellnessForm = React.memo(
               marginTop="$4"
               onPress={onSubmit}
               theme="active"
+              color={isError ? 'red' : 'unset'}
+              disabled={isPending}
             >
-              {locales.wellnessScreen.submitButton}
+              {isPending ? (
+                <ActivityIndicator />
+              ) : isError ? (
+                locales.wellnessScreen.error
+              ) : (
+                locales.wellnessScreen.submitButton
+              )}
             </Button>
           </ViewFadeAnimated>
         </YStack>

@@ -79,7 +79,7 @@ WellnessAssistant/
 1. Clone the repository
 2. Install dependencies: `npm install`
 3. For IOS cd ios then pod install then in the root `npx react-native run-ios`
-4. For android just run `npx react-native run-android`
+4. For android just run `npx react-native run-android` and please change the base url in the env file localhost not work
 
 ## Requirements
 

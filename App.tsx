@@ -1,14 +1,18 @@
 import { createTamagui, TamaguiProvider } from 'tamagui';
 import { defaultConfig } from '@tamagui/config/v4';
-
-import WellnessScreen from './src/screens/wellness';
+import Tabs from './src/navigation';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const config = createTamagui(defaultConfig);
+
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
     <TamaguiProvider config={config}>
-      <WellnessScreen />
+      <QueryClientProvider client={queryClient}>
+        <Tabs />
+      </QueryClientProvider>
     </TamaguiProvider>
   );
 }
