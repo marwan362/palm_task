@@ -59,6 +59,10 @@ WellnessAssistant/
    - Combined opacity and scale transforms for a polished effect
    - Timed the animation to follow the existing checkmark animation sequence
 
+3.  **UI structure**:
+   - I use camelcase file names and folder
+   - I follow the approach for make reusable components in the root and each screen has each component folder
+
 ## Technical Highlights
 
 - **Performance Optimized**: Uses React.memo, useCallback, and useMemo
