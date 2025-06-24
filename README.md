@@ -1,97 +1,84 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Wellness Assistant
 
-# Getting Started
+A React Native application for tracking daily wellness metrics and providing personalized suggestions.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- **Mood Tracking**: Select your current mood from a visual picker
+- **Sleep Monitoring**: Log your sleep hours with a slider
+- **Notes**: Add additional wellness notes
+- **Personalized Suggestions**: Get wellness tips based on your mood and sleep patterns
+- **Submission Confirmation**: Visual feedback when submitting your wellness data
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Project Structure
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+WellnessAssistant/
+├── src/
+│   ├── components/            # Reusable UI components
+│   │   ├── animatedCheckmark.tsx  # Checkmark animation
+│   │   ├── animatedText.tsx   # Animated text components
+│   │   ├── slider.tsx         # Generic slider component
+│   │   ├── submissionConfirmation.tsx # Submission confirmation UI
+│   │   └── viewFadeAnimated.tsx # Fade animation component
+│   ├── constants/
+│   │   ├── animation.ts       # Animation configurations
+│   │   ├── moods.ts           # Mood definitions
+│   │   └── suggestions.ts    # Wellness suggestions
+│   ├── locales/               # Localization files
+│   ├── screens/               # Application screens
+│   │   └── wellness/          # Wellness screen components
+│   │       ├── components/    # Screen-specific components
+│   │       │   ├── moodPicker.tsx     # Mood selection UI
+│   │       │   ├── suggestionCard.tsx # Suggestion card component
+│   │       │   ├── wellnessForm.tsx   # Wellness input form
+│   │       │   └── wellnessSuggestions.tsx # Suggestions list
+│   │       └── index.tsx      # Main screen component
+│   └── types/                 # Type definitions
+├── App.tsx                    # Main application component
+└── ...
 ```
 
-## Step 2: Build and run your app
+## Tech Stack Used
+- React Native
+- react-native-reanimated (v2)
+- Tamagui for styling
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Implementation Approach
+- Utilized react-native-reanimated's shared values and animated styles for smooth animations
+- Created reusable animated components following the project's existing patterns
+- Implemented both fade-in and scale animations for better visual feedback
 
-### Android
+## Key Design Decisions
+1. **Component Reuse**:
+   - Extended Tamagui's Text component via createAnimatedComponent rather than creating a separate animated text component
+   - This maintains consistency with the existing design system while adding animation capabilities
 
-```sh
-# Using npm
-npm run android
+2. **Animation Logic**:
+   - Used easing functions (Easing.out) for natural motion
+   - Combined opacity and scale transforms for a polished effect
+   - Timed the animation to follow the existing checkmark animation sequence
 
-# OR using Yarn
-yarn android
-```
+## Technical Highlights
 
-### iOS
+- **Performance Optimized**: Uses React.memo, useCallback, and useMemo
+- **Type Safety**: Comprehensive TypeScript integration
+- **Modular Architecture**: Well-separated components and concerns
+- **Localization Ready**: Text strings extracted to locale files
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## Getting Started
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. For IOS cd ios then pod install then in the root `npx react-native run-ios`
+4. For android just run `npx react-native run-android`
 
-```sh
-bundle install
-```
+## Requirements
 
-Then, and every time you update your native dependencies, run:
+- Node.js
+- npm
+- React Native development environment
 
-```sh
-bundle exec pod install
-```
+## License
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+MIT

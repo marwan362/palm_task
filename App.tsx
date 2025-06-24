@@ -1,28 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { createTamagui, TamaguiProvider } from 'tamagui';
+import { defaultConfig } from '@tamagui/config/v4';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import WellnessScreen from './src/screens/wellness';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+const config = createTamagui(defaultConfig);
 
+export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <TamaguiProvider config={config}>
+      <WellnessScreen />
+    </TamaguiProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
