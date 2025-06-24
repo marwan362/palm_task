@@ -1,24 +1,24 @@
 import React from 'react';
-import { Slider as SliderComp } from 'tamagui';
+import Slider from '@react-native-community/slider';
 
 interface SliderProps {
   value: number;
   onChange: (value: number) => void;
 }
 
-const Slider = React.memo(({ value, onChange }: SliderProps) => {
+const CustomSlider = React.memo(({ value, onChange }: SliderProps) => {
   return (
-    <SliderComp
-      size="$4"
-      min={1}
-      max={12}
+    <Slider
+      minimumValue={1}
+      maximumValue={12}
       step={0.5}
-      value={[value]}
-      onValueChange={([val]) => onChange(val)}
-    >
-      <SliderComp.Track />
-      <SliderComp.Thumb index={0} scale={0.5} circular />
-    </SliderComp>
+      value={value}
+      onValueChange={onChange}
+      minimumTrackTintColor="lightblue"
+      maximumTrackTintColor="lightgray"
+      thumbTintColor="lightblue"
+    />
   );
 });
-export default Slider;
+
+export default CustomSlider;
