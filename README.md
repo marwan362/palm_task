@@ -2,6 +2,11 @@
 
 A React Native application for tracking daily wellness metrics and providing personalized suggestions.
 
+## Tech Stack Used
+- React Native
+- react-native-reanimated (v2)
+- Tamagui for styling
+
 ## Features
 
 - **Mood Tracking**: Select your current mood from a visual picker
@@ -9,6 +14,13 @@ A React Native application for tracking daily wellness metrics and providing per
 - **Notes**: Add additional wellness notes
 - **Personalized Suggestions**: Get wellness tips based on your mood and sleep patterns
 - **Submission Confirmation**: Visual feedback when submitting your wellness data
+
+## Technical Highlights
+
+- **Performance Optimized**: Uses React.memo, useCallback, and useMemo
+- **Type Safety**: Comprehensive TypeScript integration
+- **Modular Architecture**: Well-separated components and concerns
+- **Localization Ready**: Text strings extracted to locale files
 
 ## Project Structure
 
@@ -36,13 +48,12 @@ WellnessAssistant/
 │   │       └── index.tsx      # Main screen component
 │   └── types/                 # Type definitions
 ├── App.tsx                    # Main application component
+├── WellnessAssistantBackend/  # Backend API server
+│   ├── controllers/          # Business logic
+│   ├── routes/               # API endpoint definitions
+│   └── README.md            # Backend documentation
 └── ...
 ```
-
-## Tech Stack Used
-- React Native
-- react-native-reanimated (v2)
-- Tamagui for styling
 
 ## Implementation Approach
 - Utilized react-native-reanimated's shared values and animated styles for smooth animations
@@ -62,13 +73,6 @@ WellnessAssistant/
 3.  **UI structure**:
    - I use camelcase file names and folder
    - I follow the approach for make reusable components in the root and each screen has each component folder
-
-## Technical Highlights
-
-- **Performance Optimized**: Uses React.memo, useCallback, and useMemo
-- **Type Safety**: Comprehensive TypeScript integration
-- **Modular Architecture**: Well-separated components and concerns
-- **Localization Ready**: Text strings extracted to locale files
 
 ## Getting Started
 
