@@ -1,10 +1,9 @@
 import React from 'react';
 import { YStack } from 'tamagui';
 import AnimatedCheckmark from './animatedCheckmark';
-import locales from '../locales';
 import AnimatedText from './animatedText';
 
-const SubmissionConfirmation = React.memo(() => {
+const SubmissionConfirmation = React.memo(({ text }: { text: string }) => {
   return (
     <YStack
       flex={1}
@@ -14,7 +13,7 @@ const SubmissionConfirmation = React.memo(() => {
     >
       <AnimatedCheckmark />
 
-      <AnimatedText text={locales.wellnessScreen.confirmation} />
+      <AnimatedText text={text} />
     </YStack>
   );
 });

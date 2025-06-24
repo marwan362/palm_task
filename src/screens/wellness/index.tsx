@@ -5,7 +5,7 @@ import { suggestions } from '../../constants/suggestions';
 import SubmissionConfirmation from '../../components/submissionConfirmation';
 import { WellnessSuggestions } from './components/wellnessSuggestions';
 import { WellnessForm } from './components/wellnessForm';
-
+import locales from '../../locales';
 export default function WellnessScreen() {
   const [mood, setMood] = useState<MoodType>('neutral');
   const [sleepHours, setSleepHours] = useState(7);
@@ -27,7 +27,9 @@ export default function WellnessScreen() {
   }, []);
 
   if (submitted && !showSuggestions) {
-    return <SubmissionConfirmation />;
+    return (
+      <SubmissionConfirmation text={locales.wellnessScreen.confirmation} />
+    );
   }
 
   if (showSuggestions) {
