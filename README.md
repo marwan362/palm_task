@@ -102,7 +102,7 @@ WellnessAssistant/
 
 Watch a comprehensive demo of the Wellness Assistant app:
 
-[▶️](https://www.loom.com/share/912b33280f924e11949ca35955b2314b)
+[Press here to see the video ▶️](https://www.loom.com/share/912b33280f924e11949ca35955b2314b)
 
 This video demonstrates:
 - Core app functionality
