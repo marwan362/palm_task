@@ -17,7 +17,7 @@ import {
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export default function AnimatedCheckmark() {
+const AnimatedCheckmark = React.memo(() => {
   const circleProgress = useSharedValue(0);
   const checkProgress = useSharedValue(0);
 
@@ -60,4 +60,6 @@ export default function AnimatedCheckmark() {
       <AnimatedPath {...CHECK_PROPS} animatedProps={animatedPathProps} />
     </Svg>
   );
-}
+});
+
+export default AnimatedCheckmark;
