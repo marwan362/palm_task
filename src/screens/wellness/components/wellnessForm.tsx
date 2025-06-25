@@ -5,7 +5,7 @@ import SleepSlider from '../../../components/slider';
 import { MoodType } from '../../../types';
 import locales from '../../../locales';
 import ViewFadeAnimated from '../../../components/viewFadeAnimated';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 
 type WellnessFormProps = {
   mood: MoodType;
@@ -37,8 +37,9 @@ export const WellnessForm = React.memo(
         padding="$4"
         backgroundColor="$background"
         marginTop="$5"
+        contentContainerStyle={styles.contentContainerStyle}
       >
-        <YStack gap="$4">
+        <YStack gap="$4" flexGrow={1}>
           <ViewFadeAnimated delay={200}>
             <Text fontSize="$8" fontWeight="bold" marginBottom="$2">
               {locales.wellnessScreen.title}
@@ -76,7 +77,7 @@ export const WellnessForm = React.memo(
             </YStack>
           </ViewFadeAnimated>
 
-          <ViewFadeAnimated delay={1000}>
+          <ViewFadeAnimated style={styles.buttonContainer} delay={1000}>
             <Button
               backgroundColor="$blue6"
               marginTop="$4"
@@ -99,3 +100,12 @@ export const WellnessForm = React.memo(
     );
   },
 );
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    marginTop: 'auto',
+  },
+  contentContainerStyle: {
+    flexGrow: 1,
+  },
+});

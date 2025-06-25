@@ -1,4 +1,5 @@
 import React from 'react';
+import { ViewProps } from 'react-native';
 import Animated, {
   Easing,
   FadeInDown,
@@ -8,9 +9,11 @@ import Animated, {
 const ViewFadeAnimated = ({
   children,
   delay = 0,
+  style,
 }: {
   children: React.ReactNode;
   delay: number;
+  style?: ViewProps['style'];
 }) => {
   return (
     <Animated.View
@@ -22,6 +25,7 @@ const ViewFadeAnimated = ({
         .springify()
         .easing(Easing.inOut(Easing.quad))
         .delay(delay)}
+      style={style}
     >
       {children}
     </Animated.View>

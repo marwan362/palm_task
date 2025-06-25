@@ -3,6 +3,7 @@ import { YStack, ScrollView, Button, Text } from 'tamagui';
 import SuggestionCard from './suggestionCard';
 import { StyleSheet } from 'react-native';
 import locales from '../../../locales';
+import ViewFadeAnimated from '../../../components/viewFadeAnimated';
 type WellnessSuggestionsProps = {
   suggestions: { text: string; icon: string }[];
   onReset: () => void;
@@ -30,10 +31,12 @@ export const WellnessSuggestions = React.memo(
               delay={index * 200}
             />
           ))}
+        </YStack>
+        <ViewFadeAnimated style={styles.buttonContainer} delay={1000}>
           <Button backgroundColor="$blue6" marginTop="$4" onPress={onReset}>
             {locales.wellnessScreen.startOver}
           </Button>
-        </YStack>
+        </ViewFadeAnimated>
       </ScrollView>
     );
   },
@@ -42,5 +45,9 @@ export const WellnessSuggestions = React.memo(
 const styles = StyleSheet.create({
   contentContainerStyle: {
     paddingBottom: 12,
+    flexGrow: 1,
+  },
+  buttonContainer: {
+    marginTop: 'auto',
   },
 });
