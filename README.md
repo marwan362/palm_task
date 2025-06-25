@@ -27,10 +27,15 @@ A React Native application for tracking daily wellness metrics and providing per
 ```
 WellnessAssistant/
 ├── src/
+│   ├── apis/            # apis calls
+│   │   ├── wellness/        # wellness calls
 │   ├── components/            # Reusable UI components
 │   │   ├── animatedCheckmark.tsx  # Checkmark animation
 │   │   ├── animatedText.tsx   # Animated text components
 │   │   ├── slider.tsx         # Generic slider component
+│   │   ├── empty.tsx         # Generic empty component
+│   │   ├── error.tsx         # Generic error component
+│   │   ├── loading.tsx         # Generic loading component
 │   │   ├── submissionConfirmation.tsx # Submission confirmation UI
 │   │   └── viewFadeAnimated.tsx # Fade animation component
 │   ├── constants/
@@ -39,6 +44,9 @@ WellnessAssistant/
 │   │   └── suggestions.ts    # Wellness suggestions
 │   ├── locales/               # Localization files
 │   ├── screens/               # Application screens
+│   │   ├── history/           # History screen
+│   │       ├── components/    # Screen-specific components
+│   │       └── historyEntryItem.tsx     # History entry item component
 │   │   └── wellness/          # Wellness screen components
 │   │       ├── components/    # Screen-specific components
 │   │       │   ├── moodPicker.tsx     # Mood selection UI
@@ -78,8 +86,9 @@ WellnessAssistant/
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. For IOS cd ios then pod install then in the root `npx react-native run-ios`
-4. For android just run `npx react-native run-android` and please change the base url in the env file localhost not work
+3. run backend `npm run backend` in the root
+4. For IOS cd ios then pod install then in the root `npm run ios`
+5. For android just run `npm run android` and please change the base url in the env file localhost not work
 
 ## Requirements
 
@@ -88,5 +97,17 @@ WellnessAssistant/
 - React Native development environment
 
 ## License
+
+## Demo Video
+
+Watch a comprehensive demo of the Wellness Assistant app:
+
+[![▶️](https://raw.githubusercontent.com/primer/octicons/main/icons/play-24.svg)](https://www.loom.com/share/912b33280f924e11949ca35955b2314b)
+
+This video demonstrates:
+- Core app functionality
+- User interface interactions 
+- Real-time animations
+- Data submission flow
 
 MIT

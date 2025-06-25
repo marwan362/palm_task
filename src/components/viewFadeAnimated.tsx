@@ -28,4 +28,4 @@ const ViewFadeAnimated = ({
   );
 };
 
-export default ViewFadeAnimated;
+export default React.memo(ViewFadeAnimated);
